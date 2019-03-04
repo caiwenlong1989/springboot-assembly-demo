@@ -38,15 +38,18 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <assembleDirectory>${project.build.directory}/${project.artifactId}</assembleDirectory>
+                    <!-- 该配置会让启动脚本文件生成daotarget的bin目录下 -->
+                    <assembleDirectory>${project.build.directory}</assembleDirectory>
+                    <!-- JVM参数 -->
                     <extraJvmArguments>-Xms1024m</extraJvmArguments>
+                    <!-- 定义主类 -->
                     <programs>
                         <program>
                             <id>Application</id>
                             <mainClass>com.caiwl.demo.springboot.Application</mainClass>
                         </program>
                     </programs>
-                    <!-- 生成哪些操作系统环境下的启动脚本 -->
+                    <!-- 生成哪些OS环境下的启动脚本 -->
                     <platforms>
                         <platform>windows</platform>
                         <platform>unix</platform>
@@ -57,6 +60,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!-- 包含scope为system的jar包 -->
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
                 <executions>
@@ -79,7 +83,7 @@
                         </goals>
                         <configuration>
                             <!-- zip包文件名 -->
-                            <finalName>springboot-demo</finalName>
+                            <finalName>${project.artifactId}</finalName>
                             <!-- zip包文件名不加上assembly.xml中配置的id属性值 -->
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>

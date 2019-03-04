@@ -13,11 +13,12 @@
             <directory>${basedir}/src/main/resources</directory>
             <includes>
                 <include>*.yml</include>
+                <include>*.xml</include>
             </includes>
             <outputDirectory>/conf</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.build.directory}/${project.artifactId}/bin</directory>
+            <directory>${project.build.directory}/bin</directory>
             <outputDirectory>/bin</outputDirectory>
         </fileSet>
     </fileSets>
