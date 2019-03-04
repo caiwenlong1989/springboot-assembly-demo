@@ -40,6 +40,10 @@
                 <configuration>
                     <!-- 该配置会让启动脚本文件生成daotarget的bin目录下 -->
                     <assembleDirectory>${project.build.directory}</assembleDirectory>
+                    <!-- 将jar也copy一份放到lib目录下，便于仅替换服务器jar包的更新 -->
+                    <repositoryName>lib</repositoryName>
+                    <!-- jar包不分目录，直接显示在lib下 -->
+                    <repositoryLayout>flat</repositoryLayout>
                     <!-- JVM参数 -->
                     <extraJvmArguments>-Xms1024m</extraJvmArguments>
                     <!-- 定义主类 -->
