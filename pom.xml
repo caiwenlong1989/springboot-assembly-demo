@@ -29,6 +29,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
+                <version>2.1.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -38,8 +39,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- 该配置会让启动脚本文件生成到target的bin目录下 -->
-                    <assembleDirectory>${project.build.directory}</assembleDirectory>
+                    <!-- 整体包目录 -->
+                    <assembleDirectory>${project.build.directory}/${project.artifactId}</assembleDirectory>
                     <!-- 配置文件的存放目录 -->
                     <configurationDirectory>conf</configurationDirectory>
                     <!-- 拷贝配置文件到上面的目录中 -->
@@ -55,15 +56,18 @@
                     <!-- 定义主类 -->
                     <programs>
                         <program>
-                            <id>Application</id>
+                            <id>application</id>
                             <mainClass>com.caiwl.demo.springboot.Application</mainClass>
                         </program>
                     </programs>
                     <!-- 生成哪些OS环境下的启动脚本 -->
                     <platforms>
-                        <platform>windows</platform>
                         <platform>unix</platform>
                     </platforms>
+                    <!-- 配置脚本文件扩展名 -->
+                    <binFileExtensions>
+                        <unix>.sh</unix>
+                    </binFileExtensions>
                 </configuration>
             </plugin>
             <plugin>

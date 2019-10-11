@@ -18,7 +18,7 @@
             <outputDirectory>/conf</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.build.directory}/bin</directory>
+            <directory>${project.build.directory}/${project.artifactId}/bin</directory>
             <outputDirectory>/bin</outputDirectory>
         </fileSet>
     </fileSets>
